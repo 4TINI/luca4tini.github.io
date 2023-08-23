@@ -1,3 +1,3 @@
 User-agent: *
 
-Sitemap: https://luca4tini.github.io/sitemap.xml
+Sitemap: https://4tini.github.io/luca4tini.github.io/sitemap.xml
