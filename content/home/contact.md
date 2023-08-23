@@ -13,7 +13,6 @@ title: Contact
 subtitle:
 
 content:
-
   email: test@example.org
   phone: 888 888 88 88
   appointment_url: 'https://calendly.com'
@@ -58,7 +57,3 @@ content:
 <div style="text-align: justify; margin-bottom: 20px;">
 His research is mainly focused on human modeling and motion capture for the development of feedback interfaces applicable to workers interacting with a robot during assistive or collaborative tasks in industrial scenarios.
 </div>
-
-
-
-

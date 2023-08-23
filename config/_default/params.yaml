@@ -92,3 +92,13 @@ extensions:
 security:
   # Allow frame for embedding speaker notes in slides
   allow_frame: true
+
+email: luca.fortini@iit.it
+# phone: 888
+location:
+address:
+  street: Via San Quirico 19d
+  city: Genova
+  postcode: '16163'
+  country: Italy
+  country_code: IT
