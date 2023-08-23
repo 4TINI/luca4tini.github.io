@@ -2,50 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://4tini.github.io/luca4tini.github.io/</loc>
+    <loc>https://example.com/</loc>
     <lastmod>2023-08-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/post/</loc>
+    <loc>https://example.com/post/</loc>
     <lastmod>2023-08-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/post/weighting_matching-copy-2/</loc>
+    <loc>https://example.com/post/weighting_matching-copy-2/</loc>
     <lastmod>2023-08-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/post/weighting_matching-copy/</loc>
+    <loc>https://example.com/post/weighting_matching-copy/</loc>
     <lastmod>2023-08-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/post/weighting_matching/</loc>
+    <loc>https://example.com/post/weighting_matching/</loc>
     <lastmod>2023-08-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/post/eigenfunctions/</loc>
+    <loc>https://example.com/post/eigenfunctions/</loc>
     <lastmod>2018-06-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/tag/deep-learning/</loc>
+    <loc>https://example.com/tag/deep-learning/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/project/example/</loc>
+    <loc>https://example.com/project/example/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/project/</loc>
+    <loc>https://example.com/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/tags/</loc>
+    <loc>https://example.com/tags/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/categories/</loc>
+    <loc>https://example.com/categories/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://4tini.github.io/luca4tini.github.io/publication_types/</loc>
+    <loc>https://example.com/publication_types/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
