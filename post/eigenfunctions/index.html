@@ -1,0 +1,1438 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Source+Sans+Pro:wght@200;300;400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Source+Sans+Pro:wght@200;300;400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.047268c6dd09ad74ba54a0ba71837064.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.27cc93add398ecaf1d57e89d920474e8.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+<meta name="description" content="The eigenfunctions of the time independent Schrödinger equation are numerically computed by discretising with the finite difference method and using exact diagonalisation of sparse matrices." />
+
+
+
+<link rel="alternate" hreflang="en-us" href="https://luca4tini.github.io/post/eigenfunctions/" />
+<link rel="canonical" href="https://luca4tini.github.io/post/eigenfunctions/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#003F5C" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+
+  <meta property="twitter:site" content="@wowchemy" />
+  <meta property="twitter:creator" content="@wowchemy" />
+<meta property="twitter:image" content="https://luca4tini.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png" />
+<meta property="og:site_name" content="Luca Fortini" />
+<meta property="og:url" content="https://luca4tini.github.io/post/eigenfunctions/" />
+<meta property="og:title" content="Eigenfunctions of the time independent Schrodinger equation | Luca Fortini" />
+<meta property="og:description" content="The eigenfunctions of the time independent Schrödinger equation are numerically computed by discretising with the finite difference method and using exact diagonalisation of sparse matrices." /><meta property="og:image" content="https://luca4tini.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2018-06-28T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2018-06-28T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://luca4tini.github.io/post/eigenfunctions/"
+  },
+  "headline": "Eigenfunctions of the time independent Schrodinger equation",
+  
+  "datePublished": "2018-06-28T00:00:00Z",
+  "dateModified": "2018-06-28T00:00:00Z",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Luca Fortini",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://luca4tini.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "The eigenfunctions of the time independent Schrödinger equation are numerically computed by discretising with the finite difference method and using exact diagonalisation of sparse matrices."
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Eigenfunctions of the time independent Schrodinger equation | Luca Fortini</title>
+
+  
+  
+  
+    
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="d7188ac69d21942cfe546598244a73d7" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.064760d19dabe09bb8849fae17c1c9fe.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Luca Fortini</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Luca Fortini</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <div class="container-fluid docs">
+  <div class="row">
+
+    <div class="col-xl-2 col-lg-2 d-none d-xl-block d-lg-block empty">
+    </div>
+
+    <div class="col-2 col-xl-2 col-lg-2 d-none d-lg-block docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#two-dimensional-box">Two-dimensional box</a></li>
+    <li><a href="#potential">Potential</a></li>
+    <li><a href="#units">Units</a></li>
+    <li><a href="#discretize-in-one-dimension">Discretize in one dimension</a>
+      <ul>
+        <li><a href="#dirichlet-boundary-conditions">Dirichlet boundary conditions</a></li>
+        <li><a href="#periodic-boundary-conditions">Periodic boundary conditions</a></li>
+      </ul>
+    </li>
+    <li><a href="#discretize-in-two-dimensions">Discretize in two dimensions</a></li>
+    <li><a href="#hamiltonian">Hamiltonian</a></li>
+    <li><a href="#eigenvectors-and-eigenvalues">Eigenvectors and eigenvalues</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <main class="col-xl-8 col-lg-8 docs-content" role="main">
+        <article class="article">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Eigenfunctions of the time independent Schrodinger equation</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jun 28, 2018
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+        <div class="article-container">
+          <div class="article-style" align="justify">
+            <p>The text and method is based on the following sources:</p>
+<ul>
+<li>Youtube, <em>2D Schrodinger Equation Numerical Solution in PYTHON</em>, (2022), Available at: <a href="https://www.youtube.com/watch?v=DF1SnjXZcbM&amp;list=WL&amp;index=8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=DF1SnjXZcbM&list=WL&index=8</a> (Accessed: 6 March 2022).</li>
+<li>Alexvas, <em>Discretization of Laplacian with boundary conditions</em>, (2017), Available at: <a href="https://scicomp.stackexchange.com/q/25976" target="_blank" rel="noopener">https://scicomp.stackexchange.com/q/25976</a> (Accessed: 6 March 2022).</li>
+<li>Thomas H. Pulliam, David W. Zingg., <em>Fundamental Algorithms in Computational Fluid Dynamics</em>, (2014), Springer, Available at: <a href="https://link.springer.com/book/10.1007/978-3-319-05053-9" target="_blank" rel="noopener">https://link.springer.com/book/10.1007/978-3-319-05053-9</a> (Accessed: 6 March 2022).</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="k">using</span> <span class="n">PyPlot</span><span class="p">,</span> <span class="n">PyCall</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">LinearAlgebra</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">SparseArrays</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">Arpack</span><span class="p">,</span> <span class="n">KrylovKit</span>
+</span></span></code></pre></div><h2 id="two-dimensional-box">Two-dimensional box</h2>
+<p>The goal is to solve the single particle Schrödinger equation in a two-dimensional box of length $2L$ of the Hamiltonian:
+$$
+\hat{h}=\frac{-\hbar^{2}}{2 m} \nabla^{2}+V(\mathbf{r}, t).
+$$
+The box can have a homogeneous Dirichlet boundary condition, i.e., the wave function evaluated at the border must vanish, or periodic boundary conditions. There can be a potential $V$ in the box. So let us a meshgrid of $\mathbf{x}$ and $\mathbf{y}$ coordinates.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="n">L</span> <span class="o">=</span> <span class="mf">10.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">Δx²</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">LinRange</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span> <span class="kt">Int64</span><span class="p">},</span> <span class="n">y</span><span class="o">::</span><span class="kt">LinRange</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span> <span class="kt">Int64</span><span class="p">})</span><span class="o">::</span><span class="kt">Tuple</span><span class="p">{</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="k">in</span> <span class="n">x</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="k">in</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span> <span class="k">in</span> <span class="n">x</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="kt">LinRange</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="kt">LinRange</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</span></span></code></pre></div><h2 id="potential">Potential</h2>
+<p>The potential is chosen to be eightfold rotation symmetric quasicrystal, centered on 
+
+$\mathbf{r}=0,$
+
+
+
+$$
+V(\mathbf{r})=V_{0} \sum_{k=1}^{4} \cos ^{2}\left(\mathbf{G}_{k} \cdot \mathbf{r}\right)
+$$
+
+where $V_{0}$ is the potential amplitude and the quantities $G_{k}$ are the lattice vectors of four mutually incoherent standing waves oriented at the angles $0^{\circ}, 45^{\circ}, 90^{\circ}$, and $135^{\circ}$, respectively. The lattice vectors have norm $\left|G_{k}\right|=\pi / a$.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="k">function</span> <span class="n">get_potential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">V₀</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">V₀</span><span class="o">*</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="nb">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="nb">pi</span><span class="o">*√</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="nb">pi</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="nb">pi</span><span class="o">/</span><span class="p">(</span><span class="o">√</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="c"># def get_potential(x, y):</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     return np.exp(-(x-0.3)**2/(2*0.1**2))*np.exp(-(y-0.3)**2/(2*0.1**2))</span>
+</span></span><span class="line"><span class="cl"><span class="n">V</span> <span class="o">=</span> <span class="n">get_potential</span><span class="o">.</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c"># pcolormesh(X, Y, V, cmap=:RdBu)</span>
+</span></span><span class="line"><span class="cl"><span class="n">colorbar</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c"># plot_surface(X, Y, V)</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="png" srcset="
+               /post/eigenfunctions/output_6_0_hu3b0df9a8cf757933c6a55f90ff0a41bb_179880_aa274beb4957ff60b82c3f5c79717615.webp 400w,
+               /post/eigenfunctions/output_6_0_hu3b0df9a8cf757933c6a55f90ff0a41bb_179880_3cfffccfe2cc853c2e3785a09101425b.webp 760w,
+               /post/eigenfunctions/output_6_0_hu3b0df9a8cf757933c6a55f90ff0a41bb_179880_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/eigenfunctions/output_6_0_hu3b0df9a8cf757933c6a55f90ff0a41bb_179880_aa274beb4957ff60b82c3f5c79717615.webp"
+               width="558"
+               height="434"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<pre><code>PyObject &lt;matplotlib.colorbar.Colorbar object at 0x0000000081FE1460&gt;
+</code></pre>
+<h2 id="units">Units</h2>
+<p>The Schrödinger equation is given by
+
+
+$$ \left[\frac{-\hbar^{2}}{2 m} \nabla^{2}+V(\mathbf{r})\right] \psi(\mathbf{r}) = E\psi(\mathbf{r}),$$
+Let us use the lattice spacing $a$ and the corresponding recoil energy $E_r = \pi^2\hbar^2/2ma^2$ as the space and energy units, respectively, such that we have
+
+
+
+$$
+\left[\frac{-\hbar^2}{2mE_ra^2} \tilde{\nabla}^{2}+\frac{V(\mathbf{\tilde{r}})}{E_r}\right] \psi(\mathbf{\tilde{r}}) = \left[\frac{-1}{\pi^2} \tilde{\nabla}^{2}+\tilde{V}_{0} \sum_{k=1}^{4} \cos ^{2}\left(\tilde{\mathbf{G}}_{k} \cdot \tilde{\mathbf{r}}\right)\right] \psi(\mathbf{\tilde{r}}) = \tilde{E}\psi(\mathbf{\tilde{r}}),
+$$
+
+where $|\tilde{\mathbf{G}}_{k}|=\pi$, $\tilde{\mathbf{r}} = \frac{\mathbf{r}}{a}$, and $\tilde{E}=\frac{E}{E_r}$.</p>
+<h2 id="discretize-in-one-dimension">Discretize in one dimension</h2>
+<p>Rest us to discretize our Hamiltonian. The idea can be easily explained by the following <strong>finite difference approximation</strong> of the second derivative in one dimension
+$$ \frac{d^2 \psi}{dx^2} \approx \frac{\psi_{i+1}-2\psi_i + \psi_{i-1}}{\Delta x^2}.$$</p>
+<h3 id="dirichlet-boundary-conditions">Dirichlet boundary conditions</h3>
+<p>Suppose we have $M=4$ interior points and $a$ and $b$ two boundary points, a mesh with four interior points $\Delta x=2L /(M+1)$, represented as follows
+\begin{align*}
+&amp;\qquad  \ \ a \ \ \ \ 1 \ \ \ \ 2 \ \ \ \ 3 \ \ \ \, 4 \ \ \ \  b \\\
+&amp;x=-L \ - \ - \ - \ - \ \ L
+\end{align*}
+We impose Dirichlet boundary conditions, $u(-L)=u_{a}, u(L)=u_{b}$ and use the <strong>centered finite difference approximation</strong> at every point in the mesh. We arrive at the four equations:
+
+
+
+\begin{align*}
+\left(d_{x x} u\right)_{1} &=\frac{1}{\Delta x^{2}}\left(u_{a}-2 u_{1}+u_{2}\right) \qquad \left(d_{x x} u\right)_{2} =\frac{1}{\Delta x^{2}}\left(u_{1}-2 u_{2}+u_{3}\right) \\\\\\
+\left(d_{x x} u\right)_{3} &=\frac{1}{\Delta x^{2}}\left(u_{2}-2 u_{3}+u_{4}\right) \qquad \left(d_{x x} u\right)_{4} =\frac{1}{\Delta x^{2}}\left(u_{3}-2 u_{4}+u_{b}\right)
+\end{align*}
+
+Introducing
+\begin{align*}
+\vec{u}=\left( \begin{array}{c} \psi_{1} \\\ \psi_{2} \\\ \psi_{3} \\\ \psi_{4} \end{array} \right)
+\quad
+(\overrightarrow{b c})=\frac{1}{\Delta x^{2}} \left( \begin{array}{c} \psi_{a} \\\ 0 \\\ 0 \\\ \psi_{b} \end{array} \right)
+\quad
+A=\frac{1}{\Delta x^{2}} \left( \begin{array}{rrrr} -2 &amp; 1 &amp; &amp; \\\ 1 &amp; -2 &amp; 1 &amp; \\\ &amp; 1 &amp; -2 &amp; 1 \\\ &amp; &amp; 1 &amp; -2 \end{array} \right)
+\end{align*}
+we can rewrite in matrix form as
+\begin{align*}
+\frac{d^2 \psi}{dx^2} =\frac{1}{\Delta x^{2}}D= A \vec{\psi}+(\overrightarrow{b c})
+\end{align*}</p>
+<h3 id="periodic-boundary-conditions">Periodic boundary conditions</h3>
+<p>$\color{red}{\text{This subsection has to tested and worked out. First try did not work.}}$</p>
+<p>Suppose we have $M=8$ points on a linear <strong>periodic</strong> mesh, represented as follows
+\begin{align*}
+&amp;\cdots \ \ \ 7 \ \ \ \  8 \ \ \ \ \ \ a \ \ \ \ 1 \ \ \ \ 2 \ \ \ \ 3 \ \ \ \ 4 \ \ \ \ b \ \ \ \ 1 \ \ \ \ 2 \ \ \ \cdots \\\
+&amp;x= \ - \ \ - \ \ -L \ \ - \ \ - \ \ - \ \ - \ \ L \ \ - \ \ -
+\end{align*}
+where we have that $\psi(L)=\psi(-L)$. It can be shown that the matrix representation is modified by
+\begin{align*}
+\frac{d^2 \psi}{dx^2} =\frac{1}{\Delta x^{2}}D_p=\frac{1}{\Delta x^{2}} \left( \begin{array}{rrrr} -2 &amp; 1 &amp; &amp; 1 \\\ 1 &amp; -2 &amp; 1 &amp; \\\ &amp; 1 &amp; -2 &amp; 1 \\\ 1 &amp; &amp; 1 &amp; -2 \end{array} \right)
+\end{align*}</p>
+<h2 id="discretize-in-two-dimensions">Discretize in two dimensions</h2>
+<p>In <strong>two dimensions</strong>, the wavefunction is not a vector anymore but a matrix. However, we would like to write it back as vector via the transformation
+$$
+\left( \begin{array}{rrrr} \psi_{11} &amp; \psi_{12} &amp; \cdots &amp; \psi_{1N} \\\ \psi_{21} &amp; \psi_{22} &amp; \cdots &amp; \psi_{2N} \\\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\\ \psi_{N1} &amp; \psi_{N2} &amp; \cdots &amp; \psi_{NN} \end{array} \right) \rightarrow \left( \begin{array}{c} \psi_{11} \\\ \psi_{12} \\\ \vdots \\\  \psi_{NN} \end{array} \right)
+$$
+The second derivative finite difference matrix must than be written as
+$$
+\frac{\partial^2 \psi}{\partial x^2} = \frac{1}{\Delta x^{2}} I \otimes D = \frac{1}{\Delta x^{2}} \left( \begin{array}{rrr} D &amp;  &amp; \\\  &amp; \ddots &amp; \\\ &amp;  &amp; D\end{array} \right)
+$$
+where $\otimes$ is the <strong>Kronecker product</strong>. The <strong>2D Laplacian</strong> can than be written as
+$$
+\nabla^{2} = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = \frac{1}{\Delta x^{2}} (I \otimes D + D \otimes I) = \frac{1}{\Delta x^{2}} D\oplus D
+$$
+where $\oplus$ is the <strong>Kronecker sum</strong>, and we used that we discretized space as a <strong>squared grid</strong>, i.e. $\Delta x^{2}=\Delta y^{2}$.</p>
+<h2 id="hamiltonian">Hamiltonian</h2>
+<p>Let us assume the homogeneous Dirichlet Boundary conditions $\psi(L, y) = \psi(-L, y) = \psi(x, L) = \psi(x, -L) = 0$. The <strong>discretized Schrödinger equation</strong> can then be written as
+$$
+\left[-\frac{1}{\pi^2}(D \oplus D) + \Delta x^2 \tilde{V} \right] \psi = \left( \Delta x^2 \tilde{E}\right) \psi,
+$$
+where $D$ has -2 on the main diagonal and 1 on the two neighboring diagonals and $\psi$ is a vector. One could define the potential in units of $\Delta x^2$; in other words <code>get_potential</code> actually returns $\Delta x^2 V$. However, we will leave $\Delta x^2$ in the kinetic term.
+Now we construct
+$$
+\hat{h} = -\frac{1}{\Delta x^{2}\pi^2} D \oplus D +  \tilde{V}
+$$
+such that the corresponding eigenvalues $\tilde{E}$ are in units of recoil energy $E_r$.
+Let $T=-\frac{1}{\Delta x^{2}\pi^2} D \oplus D$ and $U = V$</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">diag</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">);</span> <span class="c"># vector of ones</span>
+</span></span><span class="line"><span class="cl"><span class="n">diags</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">([</span><span class="n">diag</span><span class="p">[</span><span class="n">begin</span><span class="o">:</span><span class="n">end</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">diag</span><span class="p">,</span> <span class="n">diag</span><span class="p">[</span><span class="n">begin</span><span class="o">:</span><span class="n">end</span><span class="o">-</span><span class="mi">1</span><span class="p">]]);</span> <span class="c"># vector of vectors of the diagonals</span>
+</span></span><span class="line"><span class="cl"><span class="n">D</span> <span class="o">=</span> <span class="n">sparse</span><span class="p">(</span><span class="n">Tridiagonal</span><span class="p">(</span><span class="n">diags</span><span class="o">...</span><span class="p">))</span> <span class="c"># creates the discretised 2nd derivative</span>
+</span></span><span class="line"><span class="cl"><span class="n">T</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">Δx²</span><span class="o">*</span><span class="nb">pi</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">kron</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">sparse</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span> <span class="o">+</span> <span class="n">kron</span><span class="p">(</span><span class="n">sparse</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">D</span><span class="p">))</span>  <span class="c">#N**2 x N**2 matrix</span>
+</span></span><span class="line"><span class="cl"><span class="n">U</span> <span class="o">=</span> <span class="n">spdiagm</span><span class="p">(</span><span class="n">reshape</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">N</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">H</span> <span class="o">=</span> <span class="n">T</span><span class="o">+</span><span class="n">U</span><span class="p">;</span>
+</span></span></code></pre></div><p>Here we used the package <code>SparseArrays.jl</code> to make the computations faster. <strong>Sparse arrays</strong> are arrays that contain enough zeros that storing them in a special data structure leads to savings in space and execution time, compared to dense arrays.</p>
+<h2 id="eigenvectors-and-eigenvalues">Eigenvectors and eigenvalues</h2>
+<p>Now that we constructed our discretized Hamiltonian we can just exactly diagonalize our Hamiltonian to find the <strong>eigenvalues</strong> and <strong>eigenvector</strong>. We shall to this with the package <code>Arpack.jl</code> which is a <em>Julia</em> wrapper to a <em>FORTRAN 77</em> library designed to compute a few eigenvalues and corresponding eigenvectors of large sparse or structured matrices, using the <strong>Implicitly Restarted Arnoldi Method</strong> (IRAM) or, in the case of symmetric matrices, the corresponding variant of the <strong>Lanczos algorithm</strong>. Both are classified as <em>Krylov subspace based algorithms</em> (see wikipedia). It is used by many popular numerical computing environments such as <em>SciPy</em>, <em>Mathematica</em>, <em>GNU Octave</em> and <em>MATLAB</em> to provide this functionality.</p>
+<p>We use the <code>eigs</code> function where <code>nev</code> specifies how many eigenvalues and eigenvectors we want and <code>which</code> specifies the type of eigenvalues to compute. For my purposes I only need the ground state wave function.</p>
+<p>Alternatively, one could use <code>KrylovKit.jl</code>, a native Julia package collecting a number of Krylov-based algorithms for linear problems, singular value and eigenvalue problems and the application of functions of linear maps or operators to vectors. With <code>KrylovKit.jl</code> I manage to find better results if when I increase the number of point $N$. My theory is that it, as black box solver, uses another method above a certain threshold $N^*$, whereas <code>Arpack.jl</code> sticks to the same method and hence gives worse results.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="c"># eigenvalues, eigenvectors = eigs(H, nev=1, which=:SM);</span>
+</span></span><span class="line"><span class="cl"><span class="n">_</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eigsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:SR</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c"># vecs[1]</span>
+</span></span></code></pre></div><p>As we constructed the Hamiltonian to be a $N^2 \times N^2$ so that $\psi$ could be a vector, we have to reshape the eigenvectors back to a $N \times N$ matrix.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="k">function</span> <span class="n">get_e</span><span class="p">(</span><span class="n">n</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">reshape</span><span class="p">(</span><span class="n">vecs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span><span class="p">;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">get_e</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="ss">:RdBu</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">colorbar</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c"># contourf(X, Y, get_e(0)^2, 100)</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="png" srcset="
+               /post/eigenfunctions/output_20_0_hufc67467fdee818d97001458e24b0f472_36038_983d3b93f7e9c05263dc7cf5df085168.webp 400w,
+               /post/eigenfunctions/output_20_0_hufc67467fdee818d97001458e24b0f472_36038_a23be35e0f06b0cec3de224d533613f6.webp 760w,
+               /post/eigenfunctions/output_20_0_hufc67467fdee818d97001458e24b0f472_36038_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/eigenfunctions/output_20_0_hufc67467fdee818d97001458e24b0f472_36038_983d3b93f7e9c05263dc7cf5df085168.webp"
+               width="558"
+               height="432"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<pre><code>PyObject &lt;matplotlib.colorbar.Colorbar object at 0x0000000006C91580&gt;
+</code></pre>
+<h2 id="summary">Summary</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="k">using</span> <span class="n">PyPlot</span><span class="p">,</span> <span class="n">PyCall</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">LinearAlgebra</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">SparseArrays</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">Arpack</span><span class="p">,</span> <span class="n">KrylovKit</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">LinRange</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span> <span class="kt">Int64</span><span class="p">},</span> <span class="n">y</span><span class="o">::</span><span class="kt">LinRange</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span> <span class="kt">Int64</span><span class="p">})</span><span class="o">::</span><span class="kt">Tuple</span><span class="p">{</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="k">in</span> <span class="n">x</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="k">in</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span> <span class="k">in</span> <span class="n">x</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="n">QC</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Float64</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="kt">Float64</span><span class="p">,</span> <span class="n">V₀</span><span class="o">::</span><span class="kt">Float64</span><span class="p">)</span><span class="o">::</span><span class="kt">Float64</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">V₀</span><span class="o">*</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="nb">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="nb">pi</span><span class="o">*√</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="nb">pi</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="nb">pi</span><span class="o">/</span><span class="p">(</span><span class="o">√</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">))</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="n">free</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Float64</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="kt">Float64</span><span class="p">,</span> <span class="n">V₀</span><span class="o">::</span><span class="kt">Float64</span><span class="p">)</span><span class="o">::</span><span class="kt">Float64</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">V₀</span><span class="o">*</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="n">PC</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Float64</span><span class="p">,</span> <span class="n">y</span><span class="o">::</span><span class="kt">Float64</span><span class="p">,</span> <span class="n">V₀</span><span class="o">::</span><span class="kt">Float64</span><span class="p">)</span><span class="o">::</span><span class="kt">Float64</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">V₀</span><span class="o">*</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="nb">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">sin</span><span class="p">(</span><span class="nb">pi</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="n">eigenfunctionDBCArpack</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">L</span><span class="o">::</span><span class="kt">Float64</span><span class="p">,</span> <span class="n">N</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Δx²</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># creates the discretised 2nd derivative</span>
+</span></span><span class="line"><span class="cl">    <span class="n">D</span> <span class="o">=</span> <span class="n">sparse</span><span class="p">(</span><span class="n">Tridiagonal</span><span class="p">(</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># N**2 x N**2 matrix</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">Δx²</span><span class="o">*</span><span class="nb">pi</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">kron</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">sparse</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span> <span class="o">+</span> <span class="n">kron</span><span class="p">(</span><span class="n">sparse</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">D</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">U</span> <span class="o">=</span> <span class="n">spdiagm</span><span class="p">(</span><span class="n">reshape</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">N</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">H</span> <span class="o">=</span> <span class="n">T</span> <span class="o">+</span> <span class="n">U</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">_</span><span class="p">,</span> <span class="n">eigenvector</span> <span class="o">=</span> <span class="n">eigs</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">nev</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="ss">:SM</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">reshape</span><span class="p">(</span><span class="n">eigenvector</span><span class="o">&#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="n">eigenfunctionDBCKrylov</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">L</span><span class="o">::</span><span class="kt">Float64</span><span class="p">,</span> <span class="n">N</span><span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Δx²</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># creates the discretised 2nd derivative</span>
+</span></span><span class="line"><span class="cl">    <span class="n">D</span> <span class="o">=</span> <span class="n">sparse</span><span class="p">(</span><span class="n">Tridiagonal</span><span class="p">(</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># N**2 x N**2 matrix</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">Δx²</span><span class="o">*</span><span class="nb">pi</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">kron</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">sparse</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span> <span class="o">+</span> <span class="n">kron</span><span class="p">(</span><span class="n">sparse</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">D</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">U</span> <span class="o">=</span> <span class="n">spdiagm</span><span class="p">(</span><span class="n">reshape</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">N</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">H</span> <span class="o">=</span> <span class="n">T</span> <span class="o">+</span> <span class="n">U</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">_</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eigsolve</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="ss">:SR</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># _, eigenvector = eigs(H, nev=1, which=:SM);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">reshape</span><span class="p">(</span><span class="n">vecs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl"><span class="c"># function eigenfunctionPBC(V::Matrix{Float64})</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Δx² = (2*L/N)^2</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># # creates the discretised 2nd derivative</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># D = sparse(Tridiagonal(ones(N-1), -2*ones(N), ones(N-1)))</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># D[1, end] = 1.0</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># D[end, 1] = 1.0</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># # N**2 x N**2 matrix</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># T = -1/(Δx²*pi^2) * (kron(D, sparse(I,N,N)) + kron(sparse(I,N,N), D))</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># U = spdiagm(reshape(V, N^2))</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># H = T + U;</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># N = size(V)[1]</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># # creates the discretised 2nd derivative</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># D = sparse(Tridiagonal(ones(N-1), -2*ones(N), ones(N-1)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c"># _, eigenvector = eigs(H, nev=1, which=:SM);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#     return reshape(eigenvector&#39;, N, N)</span>
+</span></span><span class="line"><span class="cl"><span class="c"># end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">V₀</span> <span class="o">=</span> <span class="mf">0.8</span>
+</span></span><span class="line"><span class="cl"><span class="n">L</span> <span class="o">=</span> <span class="mf">50.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">Δx²</span> <span class="o">=</span> <span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl"><span class="n">N</span> <span class="o">=</span> <span class="kt">Int64</span><span class="p">(</span><span class="n">div</span><span class="p">(</span><span class="mi">2</span><span class="n">L</span><span class="p">,</span> <span class="n">Δx²</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="kt">LinRange</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="kt">LinRange</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">V</span> <span class="o">=</span> <span class="n">QC</span><span class="o">.</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">V₀</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ef</span> <span class="o">=</span> <span class="n">eigenfunctionDBCKrylov</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">im1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">,</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">,</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">],</span> <span class="n">V</span><span class="p">[</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">,</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="ss">:RdBu</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">im2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">,</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">,</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">],</span> <span class="n">ef</span><span class="p">[</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">,</span><span class="mi">450</span><span class="o">:</span><span class="mi">550</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="ss">:RdBu</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="png" srcset="
+               /post/eigenfunctions/output_23_0_hucb5a79a5598546f740fa655a52d77137_104873_566f1939be54d43f92df13569ef62ef6.webp 400w,
+               /post/eigenfunctions/output_23_0_hucb5a79a5598546f740fa655a52d77137_104873_68cc67f804bceeb5f9ad28aa6e816245.webp 760w,
+               /post/eigenfunctions/output_23_0_hucb5a79a5598546f740fa655a52d77137_104873_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/eigenfunctions/output_23_0_hucb5a79a5598546f740fa655a52d77137_104873_566f1939be54d43f92df13569ef62ef6.webp"
+               width="760"
+               height="321"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<pre><code>PyObject &lt;matplotlib.colorbar.Colorbar object at 0x000000006E89FF40&gt;
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="c"># @pyimport matplotlib.animation as anim</span>
+</span></span><span class="line"><span class="cl"><span class="c"># using Base64</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># fig = figure(figsize=(6.2,5))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># function make_frame(i)</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     V₀ = 0.02*i</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     L = 10.0</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     N = 150</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#     X, Y = meshgrid(LinRange(-L, L, N), LinRange(-L, L, N));</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     V = QC.(X, Y, V₀)</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     ef = eigenfunctionDBC(V)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#     pcolormesh(X, Y, ef^2, cmap=:RdBu)</span>
+</span></span><span class="line"><span class="cl"><span class="c"># end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># withfig(fig) do</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     myanim = anim.FuncAnimation(fig, make_frame, frames=20, interval=200)</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     myanim[:save](&#34;test2.mp4&#34;, bitrate=-1, extra_args=[&#34;-vcodec&#34;, &#34;libx264&#34;, &#34;-pix_fmt&#34;, &#34;yuv420p&#34;])</span>
+</span></span><span class="line"><span class="cl"><span class="c"># end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># function showanim(filename)</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     base64_video = base64encode(open(filename))</span>
+</span></span><span class="line"><span class="cl"><span class="c">#     display(&#34;text/html&#34;, &#34;&#34;&#34;&lt;video controls src=&#34;data:video/x-m4v;base64,$base64_video&#34;&gt;&#34;&#34;&#34;)</span>
+</span></span><span class="line"><span class="cl"><span class="c"># end</span>
+</span></span><span class="line"><span class="cl"><span class="c"># showanim(&#34;test2.mp4&#34;)</span>
+</span></span></code></pre></div>
+          </div>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        </article>
+    </main>
+  </div>
+</div>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.f64289d8217e08e3afcd597d60836062.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.4c0474d4c29781f717a272c734bee0b2.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
