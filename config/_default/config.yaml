@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Luca Fortini # Website name
-baseURL: 'https://luca4tini.github.io/' # Website URL
+baseURL: 'https://4tini.github.io/' # Website URL
 
 ############################
 ## LANGUAGE
