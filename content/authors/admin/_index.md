@@ -2,7 +2,7 @@
 title: 
 # role: PostDoc
 avatar_filename: avatar.jpg
-bio: "Ciao a tutti"
+bio: "I hold a PhD in bioengineering from the Politecnico di Milano. Now I work as a postdoc at Istituto Italiano di Tecnologia."
 # interests:
 #   - Condensed matter
 #   - Non-equilibrium Physics
